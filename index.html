@@ -39,8 +39,32 @@
 
 <script>
     document.getElementById('doorbell-image').addEventListener('click', function() {
-        alert('门铃已响！');
-    });
+            const url = 'https://cors-anywhere.herokuapp.com/https://api2.pushdeer.com/message/push';
+            const data = {
+                text: '门铃已响，有人来访！',
+                type: 'text',
+                pushkey: 'PDU32788TFagYGdrxHGNUIB2YJQU2R6O67sMRSgXP'
+            };
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('通知已发送，请优先拨打网络门铃中的电话！');
+                } else {
+                    alert('通知发送失败，请稍后再试。');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('网络错误，请检查您的网络连接。');
+            });
+        });
 </script>
 </body>
 </html>
