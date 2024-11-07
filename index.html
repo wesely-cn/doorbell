@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网络门铃</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .doorbell-container {
+            text-align: center;
+        }
+        .doorbell-image {
+            width: 100px;
+            cursor: pointer;
+        }
+        .description {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<div class="doorbell-container">
+    <img src="doorbell.png" alt="门铃" class="doorbell-image" id="doorbell-image">
+    <div class="description">
+        <a href="tel:13383937175">网络门铃-点击呼叫</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById('doorbell-image').addEventListener('click', function() {
+        alert('门铃已响！');
+    });
+</script>
+</body>
+</html>
